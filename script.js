@@ -25,14 +25,15 @@ function Man(name, surname) {
  student.about(); // Имя: Вася Фамилия: Петров Учебное заведение: ХНУРЕ
  document.write("<br>");
 
- function Employee(name,surname, job) {
+ function Employee(name,surname, job, experience) {
    Man.apply(this, arguments);
    this._job = job;
+   this._experience = experience;
    let parentAbout2 = this.about;
    this.about = function() {
      parentAbout2.call(this);
-     document.write('Место работы: ' + this._job);
+     document.write('Место работы: ' + this._job + " " + "Стаж: " + this._experience);
    }
  }
- let employee = new Employee('Вася', 'Петров', 'Страховая компания');
+ let employee = new Employee('Вася', 'Петров', 'Страховая компания', '2 года');
  employee.about();
